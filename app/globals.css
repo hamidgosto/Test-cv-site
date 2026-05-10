@@ -1,1 +1,85 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap");
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #060910;
+  color: #EDE8DF;
+  font-family: "DM Sans", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(201, 165, 90, 0.3);
+  color: #EDE8DF;
+}
+
+/* ── Typography ─────────────────────────────────── */
+
+.font-serif {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+/* ── Gradient text ──────────────────────────────── */
+
+.gradient-text {
+  background: linear-gradient(135deg, #C9A55A 0%, #E8D5A3 35%, #2EAB9F 70%, #C9A55A 100%);
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 5s linear infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 0% center; }
+  100% { background-position: 250% center; }
+}
+
+/* ── Card surface ───────────────────────────────── */
+
+.card-glass {
+  background: linear-gradient(135deg, rgba(13,18,32,0.92) 0%, rgba(20,25,42,0.88) 100%);
+  border: 1px solid rgba(201, 165, 90, 0.12);
+  backdrop-filter: blur(12px);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-glass:hover {
+  border-color: rgba(201, 165, 90, 0.28);
+  box-shadow: 0 24px 64px rgba(201, 165, 90, 0.07);
+}
+
+/* ── Floating orbs ──────────────────────────────── */
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
+  33%       { transform: translateY(-18px) scale(1.03) rotate(1deg); }
+  66%       { transform: translateY(10px) scale(0.98) rotate(-0.5deg); }
+}
+
+@keyframes float-medium {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%       { transform: translateY(-22px) scale(1.04); }
+}
+
+.animate-float-slow   { animation: float-slow   12s ease-in-out infinite; }
+.animate-float-medium { animation: float-medium  8s ease-in-out infinite; }
+
+/* ── Dot grid overlay ───────────────────────────── */
+
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(201,165,90,0.18) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
